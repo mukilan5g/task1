@@ -1,4 +1,4 @@
-# task1
+# word_counter
 Counting the frequent element in a string..
 #
 #
