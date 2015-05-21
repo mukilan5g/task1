@@ -1,5 +1,5 @@
 # word_counter
-Counting the frequent element in a string..
+Counting the frequent words in a string..
 #
 #
 *count_lib* module contains the library functions for the task
