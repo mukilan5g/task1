@@ -18,6 +18,11 @@ class TestCount(unittest.TestCase):
 	#CHECK whether the url_responce function take the default url.
 	def test_url_responce_pass_null(self):
 		self.assertTrue(url_responce())
+		
+	#CALL the url_responce function with forbidden webpage.
+	#CHECK whether the function handles it.
+	def test_url_responce_forbidden(self):
+		self.assertRaises(type(urllib2.HTTPError), url_responce('http://www.gutenberg.org/cache/epub/11/pg11.txt'))
 	
 	#CALL the read_stop_words function with the file that doesn't exists , and check it handles it.
 	def test_stop_words_pass_invalid(self):
