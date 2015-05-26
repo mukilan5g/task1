@@ -5,10 +5,10 @@ from operator import itemgetter
 
 
 # GETS the responce from the url
-def url_responce(url_path='''http://grepcode.com/file/
-                          repo1.maven.org/maven2/org.apache.bigtop.itest/
-                          hadoop-smoke/0.2.0-incubating/examples/
-                          text/pg11.txt'''):
+def url_responce(url_path=('http://grepcode.com/file/' +
+                           'repo1.maven.org/maven2/org.apache.bigtop.itest/' +
+                           'hadoop-smoke/0.2.0-incubating/examples' +
+                           '/text/pg11.txt')):
     try:
         return urllib2.urlopen(url_path)
     except urllib2.HTTPError as e:        # Thrown: forbidden
@@ -23,8 +23,7 @@ def collect_contents(str, format=r'\w+'):
 
 
 # READS the stop words from the file
-def read_stop_words(filepath='''C:\Users\mukilan\Desktop
-                             \stop_words.txt''',
+def read_stop_words(filepath=('C:\Users\mukilan\Desktop\stop_words.txt'),
                     mode='r'):
     try:
         with open(filepath, mode) as file:
