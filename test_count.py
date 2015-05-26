@@ -15,9 +15,10 @@ class TestCount(unittest.TestCase):
     # CHECK whether the url_responce function handles that.
     def test_url_responce_pass_not_exists(self):
         self.assertRaises(type(urllib2.URLError),
-                          url_responce('''http://grepcode.com/repo1.maven.org/maven2/
-                                       org.apache.bigtop.itest/hadoop-smoke/0.2.0-incubating/
-                                       examples/text/pg11.txt/?v=source'''))
+                          url_responce(('http://grepcode.com/repo1.maven.' +
+                                        'org/maven2/org.apache.bigtop.itest/' +
+                                        'hadoop-smoke/0.2.0-incubating/' +
+                                        'examples/text/pg11.txt/?v=source')))
 
     # CALL the url_responce function with out passing any url.
     # CHECK whether the url_responce function take the default url.
@@ -28,15 +29,15 @@ class TestCount(unittest.TestCase):
     # CHECK whether the function handles it.
     def test_url_responce_forbidden(self):
         self.assertRaises(type(urllib2.HTTPError),
-                          url_responce('''http://www.gutenberg.org/
-                                       cache/epub/11/pg11.txt'''))
+                          url_responce(('http://www.gutenberg.org/' +
+                                        'cache/epub/11/pg11.txt')))
 
     # CALL the read_stop_words function with the file that doesn't exists
-    # check it handles it.
+    # CHECK it handles it.
     def test_stop_words_pass_invalid(self):
         self.assertRaises(type(IOError),
-                          read_stop_words('''C:\Users\mukilan\Desktop\
-                                          stop_word.txt'''))
+                          read_stop_words(('C:\Users\mukilan\Desktop\'' +
+                                           'stop_word.txt')))
 
     # CALL the read_stop_words with out passing any filepath
     # CHECK whether it returns contents of local stop words file.
@@ -49,7 +50,7 @@ class TestCount(unittest.TestCase):
     # CHECK whether it *avoids* those *special characters* and *symbols*.
     def test_collect_contents(self):
         self.assertEqual(['he', 'is', 'the', 'hero', 'of',
-                          'the', 'movie', 'called', 'egypt', 'and,
+                          'the', 'movie', 'called', 'egypt', 'and',
                           'he', 'is', 'born', 'in', 'egypt'],
                          collect_contents(str.lower()))
 
