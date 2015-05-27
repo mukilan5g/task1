@@ -4,8 +4,8 @@ from collections import *
 from operator import itemgetter
 
 
-# GETS the responce from the url
-def url_responce(url_path=('http://grepcode.com/file/' +
+# GETS the response from the url
+def url_response(url_path=('http://grepcode.com/file/' +
                            'repo1.maven.org/maven2/org.apache.bigtop.itest/' +
                            'hadoop-smoke/0.2.0-incubating/examples' +
                            '/text/pg11.txt')):
@@ -33,7 +33,7 @@ def read_stop_words(filepath=('C:\Users\mukilan\Desktop\stop_words.txt'),
 
 
 # COUNTS the frequency of the words, except the stop words
-def count_frequeny(list_str, stop_words):
+def count_frequency(list_str, stop_words):
     return [(word, count)
             for word, count in Counter(list_str).items()
             if word not in stop_words]
