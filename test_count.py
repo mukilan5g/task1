@@ -13,7 +13,7 @@ class TestCount(unittest.TestCase):
 
     # CALL the url_responce function with the url that isn't even exists
     # CHECK whether the url_responce function handles that.
-    def test_url_responce_pass_not_exists(self):
+    def test_url_response_pass_not_exists(self):
         self.assertRaises(type(urllib2.URLError),
                           url_responce(('http://grepcode.com/repo1.maven.' +
                                         'org/maven2/org.apache.bigtop.itest/' +
@@ -21,13 +21,13 @@ class TestCount(unittest.TestCase):
                                         'examples/text/pg11.txt/?v=source')))
 
     # CALL the url_responce function with out passing any url.
-    # CHECK whether the url_responce function take the default url.
-    def test_url_responce_pass_null(self):
+    # CHECK whether the url_response function take the default url.
+    def test_url_response_pass_null(self):
         self.assertTrue(url_responce())
 
     # CALL the url_responce function with forbidden webpage.
     # CHECK whether the function handles it.
-    def test_url_responce_forbidden(self):
+    def test_url_response_forbidden(self):
         self.assertRaises(type(urllib2.HTTPError),
                           url_responce(('http://www.gutenberg.org/' +
                                         'cache/epub/11/pg11.txt')))
@@ -65,7 +65,7 @@ class TestCount(unittest.TestCase):
     # PASS list of words and list of stop words in count_frequeny function.
     # CHECK whether the function avoids the stop words
     # COUNTS the frequency of other words.
-    def test_count_frequeny(self):
+    def test_count_frequency(self):
         frequency_list = count_frequeny(collect_contents(str.lower()),
                                         ['a', 'the', 'he',
                                          'of', 'and', 'in', 'is'])
@@ -77,7 +77,7 @@ class TestCount(unittest.TestCase):
                                'and', 'in', 'is'])))
 
     # CHECK whether it counts correctly.
-    def test_count_frequeny_cardinalilty(self):
+    def test_count_frequency_cardinality(self):
         frequency_list = count_frequeny(collect_contents(str.lower()),
                                         ['a', 'the', 'he',
                                          'of', 'and', 'in', 'is'])
@@ -89,7 +89,7 @@ class TestCount(unittest.TestCase):
     # CHECK whether it sorts the list in desc based on frequency of words.
     # CROSS-CHECK by reversing the list.
     def test_sort_desc(self):
-        frequency_list = count_frequeny(collect_contents(str.lower()),
+        frequency_list = count_frequency(collect_contents(str.lower()),
                                         ['a', 'the', 'he',
                                          'of', 'and', 'in', 'is'])
         self.assertEqual([('egypt', 2), ('hero', 1), ('born', 1),
