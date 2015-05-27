@@ -4,14 +4,14 @@ from sys import argv
 from count_lib import *
 
 
-# GETS the respsonce from url
+# GETS the response from url
 # COLLECTS the contents
 # COUNT the frequency of the words
 # SORT the words in *descending* based on their frequency
 def main(n):
-    words = collect_contents(url_responce().read().lower())
+    words = collect_contents(url_response().read().lower())
     stop_words = read_stop_words()
-    countwords = count_frequeny(words, stop_words)
+    countwords = count_frequency(words, stop_words)
     sorted_list = sort_desc(countwords)
     for content in sorted_list[0:n]:
         print '%s : %d' % content
